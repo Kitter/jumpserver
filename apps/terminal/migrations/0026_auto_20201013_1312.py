@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='session',
             name='protocol',
-            field=models.CharField(choices=[('ssh', 'ssh'), ('rdp', 'rdp'), ('vnc', 'vnc'), ('telnet', 'telnet'), ('mysql', 'mysql'), ('oracle', 'oracle'), ('mariadb', 'mariadb'), ('postgresql', 'postgresql'), ('k8s', 'kubernetes')], db_index=True, default='ssh', max_length=8),
+            field=models.CharField(choices=[('ssh', 'ssh'), ('rdp', 'rdp'), ('vnc', 'vnc'), ('telnet', 'telnet'), ('mysql', 'mysql'), ('oracle', 'oracle'), ('mariadb', 'mariadb'), ('postgresql', 'postgresql'), ('k8s', 'kubernetes')], db_index=True, default='ssh', max_length=16),
         ),
     ]
