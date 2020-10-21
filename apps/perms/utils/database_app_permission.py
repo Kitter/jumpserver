@@ -94,7 +94,7 @@ def parse_database_app_to_tree_node(parent, database_app):
         'pId': pid,
         'open': False,
         'isParent': False,
-        'iconSkin': 'file',
+        'iconSkin': 'database',
         'meta': {'type': 'database_app'}
     }
     return TreeNode(**tree_node)

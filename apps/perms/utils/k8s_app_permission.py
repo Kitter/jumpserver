@@ -87,7 +87,7 @@ def parse_k8s_app_to_tree_node(parent, k8s_app):
         'pId': pid,
         'open': False,
         'isParent': False,
-        'iconSkin': 'file',
+        'iconSkin': 'k8s',
         'meta': {'type': 'k8s_app'}
     }
     return TreeNode(**tree_node)

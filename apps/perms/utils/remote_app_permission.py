@@ -93,7 +93,7 @@ def parse_remote_app_to_tree_node(parent, remote_app):
         'pId': pid,
         'open': False,
         'isParent': False,
-        'iconSkin': 'file',
+        'iconSkin': 'chrome',
         'meta': {'type': 'remote_app'}
     }
     return TreeNode(**tree_node)
