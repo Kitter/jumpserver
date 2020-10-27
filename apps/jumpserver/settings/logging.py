@@ -5,6 +5,7 @@ from ..const import PROJECT_DIR, CONFIG
 
 LOG_DIR = os.path.join(PROJECT_DIR, 'logs')
 JUMPSERVER_LOG_FILE = os.path.join(LOG_DIR, 'jumpserver.log')
+DRF_EXCEPTION_LOG_FILE = os.path.join(LOG_DIR, 'drf_exception.log')
 ANSIBLE_LOG_FILE = os.path.join(LOG_DIR, 'ansible.log')
 GUNICORN_LOG_FILE = os.path.join(LOG_DIR, 'gunicorn.log')
 LOG_LEVEL = CONFIG.LOG_LEVEL
@@ -19,6 +20,10 @@ LOGGING = {
         'main': {
             'datefmt': '%Y-%m-%d %H:%M:%S',
             'format': '%(asctime)s [%(module)s %(levelname)s] %(message)s',
+        },
+        'drf_exception': {
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+            'format': '\n%(asctime)s [%(levelname)s] %(message)s',
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
@@ -58,6 +63,15 @@ LOGGING = {
             'backupCount': 7,
             'filename': ANSIBLE_LOG_FILE,
         },
+        'drf_exception': {
+            'encoding': 'utf8',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'formatter': 'drf_exception',
+            'maxBytes': 1024 * 1024 * 100,
+            'backupCount': 7,
+            'filename': DRF_EXCEPTION_LOG_FILE,
+        },
         'syslog': {
             'level': 'INFO',
             'class': 'logging.NullHandler',
@@ -82,6 +96,10 @@ LOGGING = {
         },
         'jumpserver': {
             'handlers': ['console', 'file'],
+            'level': LOG_LEVEL,
+        },
+        'drf_exception': {
+            'handlers': ['console', 'drf_exception'],
             'level': LOG_LEVEL,
         },
         'ops.ansible_api': {

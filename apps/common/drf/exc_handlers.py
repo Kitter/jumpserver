@@ -6,9 +6,9 @@ from rest_framework.views import set_rollback
 from rest_framework.response import Response
 
 from common.exceptions import JMSObjectDoesNotExist
-from common.utils import get_logger
+from logging import getLogger
 
-logger = get_logger(__name__)
+logger = getLogger('drf_exception')
 
 
 def extract_object_name(exc, index=0):
